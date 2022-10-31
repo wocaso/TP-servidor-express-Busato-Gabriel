@@ -1,0 +1,20 @@
+[
+  {
+    "tittle": "Microndas",
+    "price": 5000,
+    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/h/e/he-bgh-_bhe65m19n_-_front-cerrado.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:%C3%A7",
+    "id": 0
+  },
+  {
+    "tittle": "Lavarropas",
+    "price": 6500,
+    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/8/k/8kg_-_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
+    "id": 1
+  },
+  {
+    "tittle": "Maquina de coser",
+    "price": 3000,
+    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/s/0/s0105_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
+    "id": 2
+  }
+]
