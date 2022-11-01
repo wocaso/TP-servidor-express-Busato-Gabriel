@@ -50,7 +50,7 @@ class Contenedor{
     getById(id){
         fs.readFile("./productos.txt", "utf-8",(err, contenido)=>{
             if(err){
-                console.log("Algo salio mal con el getAll")
+                console.log("Algo salio mal con el getById")
             }
             else{
                  let data = JSON.parse(contenido);
@@ -93,7 +93,7 @@ class Contenedor{
         let data = [];
         fs.writeFile("./productos.txt",JSON.stringify(data, null, 2) , err=>{
             if(err){
-                console.log("Algo salio borrando archivos con deleteAll")
+                console.log("Algo salio mal borrando archivos con deleteAll")
             }else{
                 console.log(data)
             }
