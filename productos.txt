@@ -16,5 +16,11 @@
     "price": 3000,
     "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/s/0/s0105_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
     "id": 2
+  },
+  {
+    "tittle": "Licuadora",
+    "price": 2000,
+    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/l/i/licuadora_1_smartlife_0_cmyk.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
+    "id": 3
   }
 ]

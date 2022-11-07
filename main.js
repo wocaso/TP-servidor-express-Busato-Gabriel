@@ -35,16 +35,30 @@ class Contenedor{
 
     }
 
-    getAll(){                                         
-        fs.readFile("./productos.txt", "utf-8",(err, contenido)=>{
-            if(err){
-                console.log("Algo salio mal con el getAll")
-            }
-            else{
-                 let data = JSON.parse(contenido);
-                 console.log(data);
-            }
-        })
+//    getAll(){              
+//         fs.readFile("./productos.txt", "utf-8",(err, contenido)=>{
+//             if(err){
+//                 console.log("Algo salio mal con el getAll")
+//             }
+//             else{
+//                  let data = JSON.parse(contenido);
+//                  console.log(data)
+
+//             }
+//         })
+
+//     }
+
+    async getAll(){
+        try{
+            const contenido = await fs.promises.readFile("./productos.txt", "utf-8")
+            let data = JSON.parse(contenido);
+            return data;
+        }catch(err){
+            console.log("Algo salio mal con el getAll", err)
+        }
+            
+        
     }
 
     getById(id){
@@ -101,12 +115,12 @@ class Contenedor{
     }
 }
 
-const Producto = {tittle: "Licuadora", price:2000, thumbnail: "https://www.cetrogar.com.ar/media/catalog/product/l/i/licuadora_1_smartlife_0_cmyk.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:"}
+// const Producto = {tittle: "Licuadora", price:2000, thumbnail: "https://www.cetrogar.com.ar/media/catalog/product/l/i/licuadora_1_smartlife_0_cmyk.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:"}
 let ProductList = new Contenedor;
 
-ProductList.saveObject(Producto);
-
-// ProductList.getAll();
+// ProductList.getAlll();
+// console.log(ProductList.getAlll());
+// ProductList.saveObject(Producto);
 
 // ProductList.getById(2);
 
@@ -115,3 +129,4 @@ ProductList.saveObject(Producto);
 // ProductList.deleteAll();
 
 
+module.exports = Contenedor;
