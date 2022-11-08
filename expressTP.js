@@ -2,25 +2,35 @@ const express = require("express");
 const app = express();
 const Contenedor = require("./main")
 
+//-------------------------------------------------------------------------------------------------------//
 let ProductList = new Contenedor;
-// console.log(ProductList.getAll());
-let prod;
-async function main() {
-    let data = await ProductList.getAll();
-    return data;
-  };
+const PORT = 8080;
+//-------------------------------------------------------------------------------------------------------//
 
-  const otrafuncion = async () => {
-    console.log(await main())
+ProductList.getAll().then(ress=>{
+  app.get("/productos",(req,res)=>{
+    res.send(ress);
+})
+})
+
+//-------------------------------------------------------------------------------------------------------//
+function numeroAleatorio(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
 }
-otrafuncion();
-  
-  
-// app.get("/",(req,res)=>{
-//     res.send("Hola mundo")
-// })
+
+let num = numeroAleatorio(0, 3);
+//-------------------------------------------------------------------------------------------------------//
 
 
-// const server = app.listen(8080, ()=>{
-//     console.log("servidor escuchando en el 8080")
-// })
+ProductList.getById(num).then(ress=>{
+  app.get("/productoRandom",(req,res)=>{
+    res.send(ress);
+})
+})
+
+//-------------------------------------------------------------------------------------------------------//
+
+
+const server = app.listen(PORT, ()=>{
+    console.log("servidor escuchando en el "+PORT)
+})

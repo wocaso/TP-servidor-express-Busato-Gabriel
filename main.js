@@ -61,22 +61,40 @@ class Contenedor{
         
     }
 
-    getById(id){
-        fs.readFile("./productos.txt", "utf-8",(err, contenido)=>{
-            if(err){
-                console.log("Algo salio mal con el getById")
-            }
-            else{
-                 let data = JSON.parse(contenido);
-                 let i = 0;
+    // getById(id){
+    //     fs.readFile("./productos.txt", "utf-8",(err, contenido)=>{
+    //         if(err){
+    //             console.log("Algo salio mal con el getById")
+    //         }
+    //         else{
+    //              let data = JSON.parse(contenido);
+    //              let i = 0;
+    //              let dataFound = null;
+    //             while(data[i] !== undefined){
+    //                 data[i].id === id && (dataFound = data[i]) ;
+    //                 i++;    
+    //             }
+    //             console.log(dataFound);
+    //         }
+    //     })
+    // }
+
+
+    async getById(id){
+        try{
+            const contenido = await fs.promises.readFile("./productos.txt", "utf-8")
+            let data = JSON.parse(contenido);
+            let i = 0;
                  let dataFound = null;
                 while(data[i] !== undefined){
                     data[i].id === id && (dataFound = data[i]) ;
                     i++;    
                 }
-                console.log(dataFound);
-            }
-        })
+                return dataFound;
+
+        }catch{
+            console.log("Algo salio mal con el getById")
+        }
     }
 
     deleteById(id){
@@ -116,17 +134,5 @@ class Contenedor{
 }
 
 // const Producto = {tittle: "Licuadora", price:2000, thumbnail: "https://www.cetrogar.com.ar/media/catalog/product/l/i/licuadora_1_smartlife_0_cmyk.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:"}
-let ProductList = new Contenedor;
-
-// ProductList.getAlll();
-// console.log(ProductList.getAlll());
-// ProductList.saveObject(Producto);
-
-// ProductList.getById(2);
-
-// ProductList.deleteById(0);
-
-// ProductList.deleteAll();
-
 
 module.exports = Contenedor;
